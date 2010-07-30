@@ -1,0 +1,13 @@
+<div id="page">
+	<h1>Listing tasks</h1>
+
+	<table id="tasks" cellpadding="7px" cellspacing="0">
+		<%= render :partial => "tasks/tasks" %>
+	</table>
+
+	<br />
+
+	<% remote_form_for :task, :complete => "document.getElementById('new-task-field').value='';" do |n| %>
+		<%= n.text_field :text, :id => "new-task-field", :value => "" %>
+	<% end %>
+</div>

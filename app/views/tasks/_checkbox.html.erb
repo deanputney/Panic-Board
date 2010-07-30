@@ -1,0 +1,7 @@
+<% unless @task.complete_date %>
+<input type="checkbox" onclick="<%= remote_function(:update => "options",
+      :url => { :controller => 'tasks', :action => 'toggle_complete', :task_id => @task.id }) %>">
+<% else %>
+<input type="checkbox" checked onclick="<%= remote_function(:update => "options",
+      :url => { :controller => 'tasks', :action => 'toggle_complete', :task_id => @task.id }) %>">
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Listing countdowns</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>End</th>
+  </tr>
+
+<% @countdowns.each do |countdown| %>
+  <tr>
+    <td><%=h countdown.name %></td>
+    <td><%=h countdown.end %></td>
+    <td><%= link_to 'Show', countdown %></td>
+    <td><%= link_to 'Edit', edit_countdown_path(countdown) %></td>
+    <td><%= link_to 'Destroy', countdown, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New countdown', new_countdown_path %>

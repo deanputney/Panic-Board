@@ -1,0 +1,145 @@
+body {
+	background: url('/images/weston-sand.jpg');
+/*	background: #000;*/
+	font-family: Helvetica;
+	color: #FFF;
+	margin:0;
+}
+
+#wrap {
+}
+
+#page {
+	margin:100px auto;
+	width: 500px;
+	text-align:center;
+}
+
+h1 {
+	width: 100%;
+	background: #222;
+	opacity: .5;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 10px;
+}
+
+table {
+	width:100%;
+}
+
+tr {
+	width: 100%;
+	background: #222;
+	opacity: .5;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 15px;
+	margin: 0 0 5px 0;
+	font-size:20px;
+}
+
+.destroy {
+	width: 20px;
+}
+
+.checkbox {
+	width: 10px;
+}
+
+#new-task-field {
+	width:100%;
+	font-size:20px;
+}
+
+#time {
+	position:fixed;
+	bottom:0px;
+	width: 100%;
+	text-align:center;
+	background: #222;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 10px;
+	color: #fff;
+	font-size: 50px;
+	opacity: .5;
+}
+
+#countdown-wrapper {
+	position:fixed;
+	bottom: 80px;
+	width:100%;
+	background: #222;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 10px;
+	color: #fff;
+	font-size: 20px;
+	text-align:center;
+	opacity: .5;
+}
+
+#countdown {
+	font-size: 50px;
+}
+
+.horizontal-bar {
+	height:75px;
+	width:50px;
+	margin:0 0 15px 0;
+	-webkit-border-top-right-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	display:none;
+}
+
+.vertical-bar {
+	height:50px;
+	width:100px;
+	margin:0 15px 0 0;
+	-webkit-border-top-right-radius:10px;
+	-webkit-border-top-left-radius:10px;
+	float:left;
+	vertical-align:bottom;
+}
+
+#bar1 {
+	background:-webkit-gradient(linear, left top, left bottom, from(#F00), to(#800));
+	
+	width:500px;
+}
+
+#bar2 {
+	background:-webkit-gradient(linear, left top, left bottom, from(#FF0), to(#880));
+	width:300px;
+}
+
+#bar3 {
+	background:-webkit-gradient(linear, left top, left bottom, from(#00F), to(#008));
+	width:200px;
+}
+
+#bar4 {
+	background:#0FF;
+	
+}
+
+#bar5 {
+	background:#F0F;
+	width:150px;
+}
+
+#bar6 {
+	background:#0F0;
+	width:350px;
+}
+
+#bar7 {
+	background:#0F0;
+	height:100px;
+}
+
+#bar8 {
+	background:#0F0;
+}
+
+#bar9 {
+	background:#0F0;
+	height:125px;
+}

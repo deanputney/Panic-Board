@@ -1,0 +1,2 @@
+module CountdownsHelper
+end

@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>Panic Board</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon-precomposed" href="images/homeicon.png"/>
+		<link rel="apple-touch-startup-image" href="images/myCustomStartupGraphic.png" />
+		
+		<%= stylesheet_link_tag "styles" %>
+    
+		<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+		<%= javascript_include_tag 'jquery.livequery.min.js' %>	
+		<%= javascript_include_tag 'jquery.countdown.min.js' %>	
+		<%= javascript_include_tag 'application.js' %>	
+		<%= javascript_include_tag 'prototype.js' %>
+	</head>
+
+	<body>
+	  <div id="wrap">
+    	<div id="content">
+    	  <%= yield %>
+    	</div>
+    </div>
+	</body>
+</html>

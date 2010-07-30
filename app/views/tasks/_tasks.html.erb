@@ -1,0 +1,19 @@
+<% unless @tasks.empty? %>
+	<% @tasks.each do |task| %>
+		<% @task = task %>
+	  <tr id="task-<%=@task.id%>">
+			<td class="checkbox"><%%>
+				<%= render :partial => "tasks/checkbox" %>
+			</td>
+	    <td id="task-<%=@task.id%>-text" ondblclick="document.getElementById('task-<%=@task.id%>-text').style.display='none'; document.getElementById('task-<%=@task.id%>-form').style.display='block';"><%=h @task.text %></td>
+			<td id="task-<%=@task.id%>-form" style="display:none;">
+				<% remote_form_for @task, :update => "task-#{@task.id}-text", :complete => "document.getElementById('task-#{@task.id}-text').style.display='block';  document.getElementById('task-#{@task.id}-form').style.display='none';" do |t| %>
+					<%= t.text_field :text %>
+				<% end %>
+			</td>
+	    <td class="destroy"><%= link_to_remote 'Destroy', :url => { :controller => "tasks", :action => "remote_delete", :id => @task.id, :layout => false } %></td>
+	  </tr>
+	<% end %>
+<% else %>
+	<tr><td>Hooray! Nothing to do!</td></tr>
+<% end %>

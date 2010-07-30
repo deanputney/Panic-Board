@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @countdown.name %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%=h @countdown.end %>
+</p>
+
+
+<%= link_to 'Edit', edit_countdown_path(@countdown) %> |
+<%= link_to 'Back', countdowns_path %>

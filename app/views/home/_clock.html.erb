@@ -1,0 +1,43 @@
+<div id="time"></div>
+<script type="text/javascript">
+	setInterval("writeTime('time');", 200);
+	
+	function writeTime(time) {
+		var a_p = "";
+		var d = new Date();
+		var curr_hour = d.getHours();
+		if (curr_hour < 12)
+		   {
+		   a_p = "AM";
+		   }
+		else
+		   {
+		   a_p = "PM";
+		   }
+		if (curr_hour == 0)
+		   {
+		   curr_hour = 12;
+		   }
+		if (curr_hour > 12)
+		   {
+		   curr_hour = curr_hour - 12;
+		   }
+
+		var curr_min = d.getMinutes();
+		var curr_sec = d.getSeconds();
+
+		curr_min = curr_min + "";
+		curr_sec = curr_sec + "";
+
+		if (curr_min.length == 1)
+		   {
+		   curr_min = "0" + curr_min;
+		   }
+		if (curr_sec.length == 1)
+		   {
+		   curr_sec = "0" + curr_sec;
+		   }
+
+		document.getElementById(time).innerHTML = curr_hour + ":" + curr_min + ":" + curr_sec + " " + a_p;
+	}
+</script>
