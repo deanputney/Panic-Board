@@ -1,9 +1,30 @@
 body {
-	background: url('/images/weston-sand.jpg');
+/*
+	background: url('/images/dlanham-MarshmallowHunting.jpg');
+	background-size:100% auto;
+*/
 /*	background: #000;*/
 	font-family: Helvetica;
 	color: #FFF;
 	margin:0;
+}
+
+img#bg {
+	position:fixed;
+	top:0;
+	left:0;
+	height:100%;
+	width:auto;
+	z-index:-5;
+}
+
+img#bg-ipad {
+	position:fixed;
+	top:0;
+	left:-25px;
+	height:100%;
+	width:auto;
+	z-index:-5;
 }
 
 #wrap {
@@ -11,16 +32,28 @@ body {
 
 #page {
 	margin:100px auto;
-	width: 500px;
+	width: 600px;
 	text-align:center;
+}
+
+.bar-wrapper {
+	position:fixed;
+	width:100%;
+	background: #222;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 10px;
+	color: #fff;
+	font-size: 20px;
+	text-align:center;
+	opacity: .8;
 }
 
 h1 {
 	width: 100%;
 	background: #222;
-	opacity: .5;
+	opacity: .8;
 /*	-webkit-border-radius:20px;*/
-	padding:5px 10px;
+	padding:5px 0px;
 }
 
 table {
@@ -30,15 +63,41 @@ table {
 tr {
 	width: 100%;
 	background: #222;
-	opacity: .5;
 /*	-webkit-border-radius:20px;*/
-	padding:5px 15px;
+	padding:5px 5px;
 	margin: 0 0 5px 0;
 	font-size:20px;
 }
 
+tr.index-row-done {
+	float: left;
+	width: 100%;
+	background: #222;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 0px;
+	margin: 0 0 5px 0;
+	font-size:20px;
+	opacity: .5;
+}
+
+tr.index-row {
+	float: left;
+	width: 100%;
+	background: #222;
+/*	-webkit-border-radius:20px;*/
+	padding:5px 0px;
+	margin: 0 0 5px 0;
+	font-size:20px;
+	opacity: .8;
+}
+
 .destroy {
 	width: 20px;
+}
+
+.destroy a {
+	color: #fff;
+	text-decoration: none;
 }
 
 .checkbox {
@@ -48,6 +107,20 @@ tr {
 #new-task-field {
 	width:100%;
 	font-size:20px;
+}
+
+.task-text {
+	width:580px;
+}
+
+.edit_task {
+	margin:0;
+}
+
+.edit-task-field {
+	width:100%;
+	font-size:20px;
+	margin:0;
 }
 
 #time {
@@ -60,7 +133,7 @@ tr {
 	padding:5px 10px;
 	color: #fff;
 	font-size: 50px;
-	opacity: .5;
+	opacity: .8;
 }
 
 #countdown-wrapper {
@@ -73,11 +146,33 @@ tr {
 	color: #fff;
 	font-size: 20px;
 	text-align:center;
-	opacity: .5;
+	opacity: .8;
 }
 
-#countdown {
-	font-size: 50px;
+#countdown-inner {
+	margin: 0 auto;
+	width:70%;
+}
+
+.countdown {
+	font-size: 45px;
+	float: left;
+	width:100%;
+}
+
+.countdown ul {
+	list-style: none;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+.countdown li {
+	width:100%;
+}
+
+#all-tweets {
+	color:#999;
 }
 
 .horizontal-bar {

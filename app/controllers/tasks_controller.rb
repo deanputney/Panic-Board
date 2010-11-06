@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = Task.all
+    @tasks = Task.find(:all, :conditions => ["complete_date IS NULL"])
+    @done_tasks = Task.find(:all, :conditions => ["complete_date IS NOT NULL"], :order => "complete_date DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        @tasks = Task.all
+        @tasks = Task.find(:all, :conditions => ["complete_date IS NULL"])
         flash[:notice] = 'Task was successfully created.'
         format.html { redirect_to(@task) }
         format.xml  { render :xml => @task, :status => :created, :location => @task }
@@ -90,23 +91,28 @@ class TasksController < ApplicationController
   def toggle_complete
     @task = Task.find(params[:task_id])
     if @task.complete_date
-      @task.complete_date = NULL
+      @task.complete_date = "NULL"
       @task.save!
     else
       @task.complete_date = Time.now
       @task.save!
     end
+    
+    @tasks = Task.find(:all, :conditions => ["complete_date IS NULL"])
+    @done_tasks = Task.find(:all, :conditions => ["complete_date IS NOT NULL"], :order => "complete_date DESC")
     render :update do |p|
-      p.replace_html "task-#{task.id}", :partial => "tasks/checkbox"
+      p.replace_html "page", :partial => "tasks/all_tasks"
     end
   end
   
   def remote_delete
     @task = Task.find(params[:id])
     @task.destroy
-    @tasks = Task.all
+    
+    @tasks = Task.find(:all, :conditions => ["complete_date IS NULL"])
+    @done_tasks = Task.find(:all, :conditions => ["complete_date IS NOT NULL"], :order => "complete_date DESC")
     render :update do |p|
-      p.replace_html "tasks", :partial => "tasks/tasks"
+      p.replace_html "page", :partial => "tasks/all_tasks"
     end
   end
 end

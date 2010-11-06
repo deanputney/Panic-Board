@@ -1,4 +1,23 @@
-<div id="countdown-wrapper">
-<div id="release-time" style="display:none"><%= @countdown.end.localtime.strftime("%B %d, %Y %H:%M:%S") %></div>
-<div id="countdown"></div> until <%= @countdown.name %>
-</div>
+<a href="/countdowns">
+	<div id="countdown-wrapper">
+		<table style="width:550px; margin:0 auto;">
+			<tr>
+			<% @countdowns.each do |c| %>
+				<td align="center">
+					<script type="text/javascript">
+					j(document).ready(function() {
+						var cDate = new Date(j('#release-time-<%= c.id %>').text());
+						j('#countdown-<%= c.id %>').countdown({until: cDate, compact: false, format:'y o w d h m s', significant:2, onTick: tick, layout: '<ul>{y<}<li>{yn} {yl}</li>{y>}{o<}<li>{on} {ol}</li>{o>}' + 
+					    '{w<}<li>{wn} {wl}</li>{w>}{d<}<li>{dn} {dl}</li>{d>}{h<}<li>{hn} {hl}</li>{h>}' + 
+					    '{m<}<li>{mn} {ml}</li>{m>}{s<}<li>{sn} {sl}</li>{s>}</ul>'});
+						setHides();
+					});
+					</script>
+					<div id="release-time-<%= c.id %>" style="display:none"><%= c.end.localtime.strftime("%B %d, %Y %H:%M:%S") %></div>
+					<div id="countdown-<%= c.id %>" class="countdown"></div><br/><br/><br/>until <%= c.name %>
+				</td>
+			<% end %>
+			</tr>
+		</table>
+	</div>
+</a>

@@ -1,4 +1,6 @@
 class CountdownsController < ApplicationController
+  layout 'application'
+
   # GET /countdowns
   # GET /countdowns.xml
   def index

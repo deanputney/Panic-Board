@@ -1,8 +1,9 @@
 var j = jQuery.noConflict();
 j(document).ready(function() {
-	j('#tabs').tabs();
 	var cDate = new Date(j('#release-time').text());
-	j('#countdown').countdown({until: cDate, compact: false, format:'yowdhms', significant:1, layout: '{y<}{yn} {yl} {y>}{o<}{on} {ol} {o>}{w<}{wn} {wl} {w>}{d<}{dn} {dl} {d>}{h<}{hn} {hl} {h>}{m<}{mn} {ml} {m>}{s<}{sn} {sl}{s>}'});
+	j('#countdown').countdown({until: cDate, compact: false, format:'y o w d h m s', significant:2, onTick: tick, layout: '<ul>{y<}<li>{yn} {yl}</li>{y>}{o<}<li>{on} {ol}</li>{o>}' + 
+    '{w<}<li>{wn} {wl}</li>{w>}{d<}<li>{dn} {dl}</li>{d>}{h<}<li>{hn} {hl}</li>{h>}' + 
+    '{m<}<li>{mn} {ml}</li>{m>}{s<}<li>{sn} {sl}</li>{s>}</ul>'});
 	setHides();
 });
 
@@ -14,4 +15,8 @@ function setHides() {
         jmodifyBox.css("display", "block");
         return false;
     });
+}
+
+function tick(){
+	j('.countdown ul li:nth-child(2)').css("font-size","25px");
 }

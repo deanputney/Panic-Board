@@ -1,0 +1,12 @@
+<div id="all-tweets" class="bar-wrapper">
+	<% if @timeline %>
+		<marquee scrollamount="5" scrolldelay="30">
+			<% @timeline.each_with_index do |tweet, i| %>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="tweet-author" <% if i==0 %>style="color:#fff"<% elsif i.even? %>style="color:#ccc"<% end %>><%= tweet.user.screen_name %>:</span> <span class="tweet-text" <% if i==0 %>style="color:#fff"<% elsif i.even? %>style="color:#ccc"<% end %>><%= tweet.text %></span>
+			<% end %>
+		</marquee>
+	<% else %>
+		No Tweets
+	<% end %>
+</div>
